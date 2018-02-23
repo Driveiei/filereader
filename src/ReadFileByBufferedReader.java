@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadFileByBufferedReader implements Runnable {
-	
+
 	private int size;
 	private static String filename;
 
@@ -24,7 +24,7 @@ public class ReadFileByBufferedReader implements Runnable {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		if (buffer != null) {
 			try {
 				buffer.close();
@@ -39,9 +39,9 @@ public class ReadFileByBufferedReader implements Runnable {
 	public void run() {
 		size = readFileByBufferedReader().length();
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("Read %s and append lines to String \nwith %d chars ",filename,size);
+		return String.format("Read %s and append lines to String \nwith %d chars ", filename, size);
 	}
 }

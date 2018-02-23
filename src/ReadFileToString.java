@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class ReadFileToString implements Runnable{
+public class ReadFileToString implements Runnable {
 
 	private static String filename;
 	private int size;
@@ -16,7 +16,7 @@ public class ReadFileToString implements Runnable{
 		String text = "";
 		InputStream in = null;
 		try {
-			in = new FileInputStream(filename);// read as characters
+			in = new FileInputStream(filename); // read as characters
 			InputStreamReader reader = new InputStreamReader(in); // read the file
 			while (true) {
 				int character = reader.read();
@@ -35,16 +35,16 @@ public class ReadFileToString implements Runnable{
 			}
 		}
 		return text;
-	}	
-	
+	}
+
 	@Override
 	public void run() {
 		size = readFileToString().length();
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("Read %s and append to a String \nwith %d chars ",filename,size);
+		return String.format("Read %s and append to a String \nwith %d chars ", filename, size);
 	}
 
 }

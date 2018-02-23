@@ -3,11 +3,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class ReadFileToStringBuilder implements Runnable{
+public class ReadFileToStringBuilder implements Runnable {
 
 	private static String filename;
 	private int size;
-	
+
 	public ReadFileToStringBuilder(String filename) {
 		this.filename = filename;
 	}
@@ -23,8 +23,8 @@ public class ReadFileToStringBuilder implements Runnable{
 				if (character < 0)
 					break;
 				text = text.append((char) character);
-			} 
-		}catch (IOException e) {
+			}
+		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 		if (in != null) {
@@ -41,9 +41,9 @@ public class ReadFileToStringBuilder implements Runnable{
 	public void run() {
 		size = readFileToStringBuilder().length();
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("Read %s and append to a StringBuilder \nwith %d chars ",filename,size);
+		return String.format("Read %s and append to a StringBuilder \nwith %d chars ", filename, size);
 	}
 }
