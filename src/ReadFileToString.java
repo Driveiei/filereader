@@ -13,16 +13,16 @@ public class ReadFileToString implements Runnable{
 	}
 
 	public static String readFileToString() {
-		String data = "";
+		String text = "";
 		InputStream in = null;
 		try {
 			in = new FileInputStream(filename);// read as characters
 			InputStreamReader reader = new InputStreamReader(in); // read the file
 			while (true) {
-				int c = reader.read();
-				if (c < 0)
+				int character = reader.read();
+				if (character < 0)
 					break;
-				data = data + (char) c;
+				text = text + (char) character;
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -34,7 +34,7 @@ public class ReadFileToString implements Runnable{
 				/* ignore it */
 			}
 		}
-		return data;
+		return text;
 	}	
 	
 	@Override
@@ -44,7 +44,7 @@ public class ReadFileToString implements Runnable{
 	
 	@Override
 	public String toString() {
-		return String.format("Read %s and append to a String \nwith %d chars",filename,size);
+		return String.format("Read %s and append to a String \nwith %d chars ",filename,size);
 	}
 
 }

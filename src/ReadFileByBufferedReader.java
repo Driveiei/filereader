@@ -12,27 +12,27 @@ public class ReadFileByBufferedReader implements Runnable {
 	}
 
 	public static String readFileByBufferedReader() {
-		String all = "";
-		BufferedReader br = null;
+		String text = "";
+		BufferedReader buffer = null;
 		try {
-			br = new BufferedReader(new FileReader(filename));
-			String line = br.readLine();
+			buffer = new BufferedReader(new FileReader(filename));
+			String line = buffer.readLine();
 			while (line != null) {
-				all = all + line + "\n";
-				line = br.readLine();
+				text = text + line + "\n";
+				line = buffer.readLine();
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 		
-		if (br != null) {
+		if (buffer != null) {
 			try {
-				br.close();
+				buffer.close();
 			} catch (IOException e) {
 				/* ignore it */
 			}
 		}
-		return all;
+		return text;
 	}
 
 	@Override
@@ -42,6 +42,6 @@ public class ReadFileByBufferedReader implements Runnable {
 	
 	@Override
 	public String toString() {
-		return String.format("Read %s and append lines to String \nwith %d chars",filename,size);
+		return String.format("Read %s and append lines to String \nwith %d chars ",filename,size);
 	}
 }

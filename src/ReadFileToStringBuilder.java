@@ -13,17 +13,16 @@ public class ReadFileToStringBuilder implements Runnable{
 	}
 
 	public static String readFileToStringBuilder() {
-		StringBuilder data = new StringBuilder();// change
-		String name = filename;
+		StringBuilder text = new StringBuilder();
 		InputStream in = null;
 		try {
 			in = new FileInputStream(filename);// read as characters
 			InputStreamReader reader = new InputStreamReader(in); // read the file
 			while (true) {
-				int c = reader.read();
-				if (c < 0)
+				int character = reader.read();
+				if (character < 0)
 					break;
-				data = data.append((char) c);// change
+				text = text.append((char) character);
 			} 
 		}catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -35,7 +34,7 @@ public class ReadFileToStringBuilder implements Runnable{
 				/* ignore it */
 			}
 		}
-		return data.toString();// change
+		return text.toString();
 	}
 
 	@Override
@@ -45,6 +44,6 @@ public class ReadFileToStringBuilder implements Runnable{
 	
 	@Override
 	public String toString() {
-		return String.format("Read %s and append to a StringBuilder \nwith %d chars",filename,size);
+		return String.format("Read %s and append to a StringBuilder \nwith %d chars ",filename,size);
 	}
 }
