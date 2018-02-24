@@ -1,6 +1,7 @@
 /**
  * A Main class to create objects and connect objects together to show runtime
- * by reading Alice-in-Wonderland.txt.
+ * by reading Alice-in-Wonderland.txt and responsible for creating the 
+ * specific tasks we want to measure and calling TaskTimer.
  * 
  * @author Kornphon Noiprasert
  */
